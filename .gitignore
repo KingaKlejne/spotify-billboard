@@ -6,3 +6,5 @@
 .idea/spotify-billboard.iml
 .idea/vcs.xml
 .idea/workspace.xml
+.cache
+__pycache__/
