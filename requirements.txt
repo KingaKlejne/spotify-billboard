@@ -1,0 +1,6 @@
+# This file may be used to create an environment using:
+
+requests==2.28.1
+spotipy==2.20.0
+bs4==4.11.1
+beautifulsoup4==4.11.1
