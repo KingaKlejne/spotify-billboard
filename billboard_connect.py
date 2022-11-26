@@ -14,12 +14,12 @@ class ConnectToBillboard(BeautifulSoup):
         self.songs_list = []
         self.artists_list = []
 
-    def get_songs(self):
+    def get_songs(self) -> list:
         for song in self.songs[:100]:
             self.songs_list.append(song.getText().strip())
         return self.songs_list
 
-    def get_artists(self):
+    def get_artists(self) -> list:
         for artist in self.artists[13:]:
             if len(artist.getText().strip()) > 2 and (
                 "Expand" not in artist.getText().strip()

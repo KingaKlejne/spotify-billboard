@@ -23,7 +23,7 @@ class ConnectToSpotify:
         self.user_id = self.sp.current_user()["id"]
         self.tracks_ids = []
 
-    def create_track_list(self, songs_list, artists_list):
+    def create_track_list(self, songs_list, artists_list) -> list:
         for i in range(100):
             sp_song_name = self.sp.search(
                 q=f"track: {songs_list[i]} artist: {artists_list[i]}",
@@ -43,11 +43,12 @@ class ConnectToSpotify:
                 songs_list[i] not in sp_song_name
                 and artists_list[i] not in sp_artist_name
             ):
-                print(
-                    f"Instead of {artists_list[i]}: "
-                    f'"{songs_list[i]}", only {sp_artist_name}: '
-                    f'"{sp_song_name}" was found, not added to playlist'
-                )
+                # print(
+                #     f"Instead of {artists_list[i]}: "
+                #     f'"{songs_list[i]}", only {sp_artist_name}: '
+                #     f'"{sp_song_name}" was found, not added to playlist'
+                # )
+                pass
             else:
                 self.tracks_ids.append(
                     self.sp.search(
@@ -56,11 +57,12 @@ class ConnectToSpotify:
                         type="track",
                     )["tracks"]["items"][0]["id"]
                 )
-                print(
-                    f"For {artists_list[i]}: "
-                    f'"{songs_list[i]}", found {sp_artist_name}: '
-                    f'"{sp_song_name}" and added to playlist'
-                )
+                # print(
+                #     f"For {artists_list[i]}: "
+                #     f'"{songs_list[i]}", found {sp_artist_name}: '
+                #     f'"{sp_song_name}" and added to playlist'
+                # )
+        return self.tracks_ids
 
     def create_playlist(self, date_input):
         self.sp.user_playlist_create(user=self.user_id,
@@ -72,3 +74,4 @@ class ConnectToSpotify:
                                                  )["items"][0]["id"]
             self.sp.playlist_add_items(playlist_id=playlist_id,
                                        items=self.tracks_ids)
+
