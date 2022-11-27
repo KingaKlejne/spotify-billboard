@@ -8,3 +8,4 @@
 .idea/workspace.xml
 .cache
 __pycache__/
+.DS_Store

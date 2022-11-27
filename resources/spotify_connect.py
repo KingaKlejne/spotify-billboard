@@ -16,7 +16,7 @@ class ConnectToSpotify:
                 client_id=SPOTIPY_CLIENT_ID,
                 client_secret=SPOTIPY_CLIENT_SECRET,
                 redirect_uri=APP_REDIRECT_URI,
-                cache_path=".cache",
+                cache_path="../.cache",
                 scope=["playlist-modify-private", "playlist-read-private"],
             )
         )

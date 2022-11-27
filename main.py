@@ -1,6 +1,6 @@
-from billboard_connect import ConnectToBillboard
-from spotify_connect import ConnectToSpotify
-from user_input import get_input, check_date
+from resources.billboard_connect import ConnectToBillboard
+from resources.spotify_connect import ConnectToSpotify
+from resources.user_input import check_date, get_input
 
 date = get_input()
 if not check_date(date):

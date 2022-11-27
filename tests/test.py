@@ -1,8 +1,10 @@
 import unittest
-from spotify_connect import ConnectToSpotify
-from billboard_connect import ConnectToBillboard
-from user_input import check_date
-from reference_lists import tracks_ids_list, songs_name_list, artists_name_list
+
+from resources.billboard_connect import ConnectToBillboard
+from resources.spotify_connect import ConnectToSpotify
+from resources.user_input import check_date
+
+from reference_lists import artists_name_list, songs_name_list, tracks_ids_list
 
 
 class TestInputs(unittest.TestCase):
@@ -47,4 +49,3 @@ class TestSpotifyConnection(unittest.TestCase):
         self.assertEqual(type(self.expected_tracks_ids), type(tracks_ids_list))
         self.assertEqual(self.expected_tracks_ids, tracks_ids_list)
         self.assertEqual(type(self.expected_tracks_ids), list)
-
